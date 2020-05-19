@@ -117,24 +117,29 @@ export default function Header( { openEntitiesSavedStates } ) {
 				<ToolSelector />
 				<UndoButton />
 				<RedoButton />
-				<PageSwitcher
-					showOnFront={ settings.showOnFront }
-					activePage={ settings.page }
-					onActivePageChange={ setActivePage }
-				/>
-				<TemplateSwitcher
-					ids={ settings.templateIds }
-					templatePartIds={ settings.templatePartIds }
-					activeId={ settings.templateId }
-					homeId={ settings.homeTemplateId }
-					isTemplatePart={
-						settings.templateType === 'wp_template_part'
-					}
-					onActiveIdChange={ setActiveTemplateId }
-					onActiveTemplatePartIdChange={ setActiveTemplatePartId }
-					onAddTemplateId={ addTemplateId }
-				/>
 				<BlockNavigationDropdown />
+				<div className="edit-site-header__toolbar-switchers">
+					<PageSwitcher
+						showOnFront={ settings.showOnFront }
+						activePage={ settings.page }
+						onActivePageChange={ setActivePage }
+					/>
+					<div className="edit-site-header__toolbar-switchers-separator">
+						/
+					</div>
+					<TemplateSwitcher
+						ids={ settings.templateIds }
+						templatePartIds={ settings.templatePartIds }
+						activeId={ settings.templateId }
+						homeId={ settings.homeTemplateId }
+						isTemplatePart={
+							settings.templateType === 'wp_template_part'
+						}
+						onActiveIdChange={ setActiveTemplateId }
+						onActiveTemplatePartIdChange={ setActiveTemplatePartId }
+						onAddTemplateId={ addTemplateId }
+					/>
+				</div>
 			</div>
 			<div className="edit-site-header__actions">
 				<PreviewOptions
