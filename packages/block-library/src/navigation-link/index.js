@@ -12,17 +12,20 @@ import edit from './edit';
 import save from './save';
 
 const { name } = metadata;
+
 export { metadata, name };
 
 export const settings = {
 	title: __( 'Navigation Link' ),
-
 	icon,
-
 	description: __( 'Add a page, link, or another item to your navigation.' ),
-
 	__experimentalLabel: ( { label } ) => label,
-
+	merge( a, { label: bLabel = '' } ) {
+		return {
+			...a,
+			label: a.label + bLabel,
+		};
+	},
 	edit,
 	save,
 };
